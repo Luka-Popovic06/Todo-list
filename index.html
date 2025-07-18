@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
   </head>
   <body>
-    <header>
+    <header class="header-box">
       <h1 class="heading-primary">TODO LIST</h1>
     </header>
-    <main class="todoApp">
+    <main class="main-box">
       <div class="sidebar">
         <button class="btn-new-project">
           <svg
@@ -28,7 +31,7 @@
               d="M12 4.5v15m7.5-7.5h-15"
             />
           </svg>
-          <span>New Project</span>
+          <span class="span-new-project">New Project</span>
         </button>
         <h2 class="heading-secondary">
           <span>Project</span>
@@ -48,9 +51,10 @@
             />
           </svg>
         </h2>
-        <div class="sidebar_form_box">
+        <div class="sidebar_form_box hidden">
           <form class="form-sidebar">
             <input
+              class="input"
               type="text"
               placeholder="My Project"
               id="input-project"
@@ -63,10 +67,29 @@
           </form>
         </div>
         <div class="sidebar_ul_box">
-          <ul class="sidebar-list"></ul>
+          <ul class="sidebar-list">
+            <!-- <li class="sidebar-li-box">
+              <p class="list-paragraf">kasnasjn</p>
+              <svg
+                class="icon-x"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </li>-->
+          </ul>
         </div>
       </div>
-      <div class="main-box">
+      <div class="main-minibox">
         <div class="main-top">
           <button class="btn-new-todo">
             <svg
