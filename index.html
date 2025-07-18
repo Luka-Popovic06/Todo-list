@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="heading-primary">TODO LIST</h1>
+    </header>
+    <main class="todoApp">
+      <div class="sidebar">
+        <button class="btn-new-project">
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+          <span>New Project</span>
+        </button>
+        <h2 class="heading-secondary">
+          <span>Project</span>
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+            />
+          </svg>
+        </h2>
+        <div class="sidebar_form_box">
+          <form class="form-sidebar">
+            <input
+              type="text"
+              placeholder="My Project"
+              id="input-project"
+              required
+            />
+            <div class="btn-form-box">
+              <button class="btn-add-project">Add</button>
+              <button class="btn-cancel-project">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class="sidebar_ul_box">
+          <ul class="sidebar-list"></ul>
+        </div>
+      </div>
+      <div class="main-box">
+        <div class="main-top">
+          <button class="btn-new-todo">
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+            <span>New todo</span>
+          </button>
+          <h2 class="heading-secondary">
+            <span>Todos</span>
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </h2>
+        </div>
+        <div class="main-bottom">
+          <ul class="main-list"></ul>
+        </div>
+        <form class="form-main">
+          <div class="label_input-box">
+            <div class="text-box">
+              <label class="label-form_main" for="title">Todo:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="My todo"
+                required
+              />
+            </div>
+            <div class="date-box">
+              <label class="label-form_main" for="date">Due:</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+          <div class="main_form-btn">
+            <button class="btn-add-todo">Add</button>
+            <button class="btn-cancel-todo">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
