@@ -130,6 +130,140 @@ body {
 }
 /*Main-minibox*/
 .main-minibox {
+  width: 70%;
+  background-color: #fff;
+  padding-top: 30px;
+}
+.btn-new-todo {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: none;
+  cursor: pointer;
+  color: #39474b;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.btn-new-todo:hover {
+  background-color: #cdcdcd;
+}
+/*Form-main*/
+.label_input-box {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  border: 1px solid #c7c7c7;
+  background-color: #ddd;
+  padding: 10px 20px;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+.label-form_main {
+  color: #666;
+}
+#title {
+  width: 80%;
+}
+.main-input {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+}
+.main-input:focus {
+  outline: none;
+}
+/*Btn*/
+.main_form-btn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.btn {
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn-add-todo {
+  border: 1px solid #99dd99;
+  background-color: #aaffaa;
+}
+.btn-add-todo:hover {
+  background-color: #83d383;
+}
+.btn-cancel-todo:hover {
+  background-color: #d39c9c;
+}
+.btn-cancel-todo {
+  border: 1px solid #eeadad;
+  background-color: #ffbebe;
+}
+/*Main-ul*/
+.li-box {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.li-box:hover {
+  background-color: #cdcdcd;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.main-icon {
+  width: 20px;
+  color: #39474b;
+}
+.todo-p {
+  display: inline-block;
+  font-weight: 300;
+  color: #39474b;
+  font-size: 19px;
+}
+.todo-p-text,
+.todo-p-date {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 19px;
+}
+.todo-btn-div {
+  margin-right: 20px;
+}
+.btn-edit {
+  background-color: #ffe176;
+  border: 1px solid #ffd43b;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.btn-edit:hover {
+  background-color: #dbc165;
+}
+.btn-delete {
+  border: 1px solid #eeadad;
+  background-color: #ffbebe;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.btn-delete:hover {
+  background-color: #d39d9d;
 }
 .icon {
   width: 20px;
