@@ -22,9 +22,3 @@ export function addProject(id, text) {
 
   domElements.sidebarFormBox.classList.add('hidden');
 }
-export function updateProjectList(projects) {
-  domElements.sidebarUl.innerHTML = '';
-  projects.forEach(function (project) {
-    addProject(project.getId(), project.getText());
-  });
-}
