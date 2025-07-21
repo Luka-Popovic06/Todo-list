@@ -15,4 +15,5 @@ export const domElements = {
   mainInputDate: document.querySelector('#date'),
   btnAddTodo: document.querySelector('.btn-add-todo'),
   btnCancelTodo: document.querySelector('.btn-cancel-todo'),
+  editFormBox: document.querySelector('.edit-form-box'),
 };

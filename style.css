@@ -250,6 +250,10 @@ body {
   border-radius: 7px;
   cursor: pointer;
 }
+.btn-Finish-edit {
+  background-color: #ffe176;
+  border: 1px solid #ffd43b;
+}
 .btn-edit:hover {
   background-color: #dbc165;
 }
@@ -261,6 +265,10 @@ body {
   padding: 10px 15px;
   border-radius: 7px;
   cursor: pointer;
+}
+.btn-cancel-todo-edit {
+  border: 1px solid #eeadad;
+  background-color: #ffbebe;
 }
 .btn-delete:hover {
   background-color: #d39d9d;

@@ -1,4 +1,6 @@
 import { domElements } from './dom.js';
+import { projectText, todoDate, todoText } from './input.js';
+//Project
 export function addProject(id, text) {
   const html = `<li class="sidebar-li-box" id=${id}>
               <p class="list-paragraf">${text}</p>
@@ -22,6 +24,14 @@ export function addProject(id, text) {
 
   domElements.sidebarFormBox.classList.add('hidden');
 }
+export function updateProjectList(projects) {
+  domElements.sidebarUl.innerHTML = '';
+  projects.forEach(function (project) {
+    addProject(project.getId(), project.getText());
+  });
+}
+
+//Todo
 export function addTodo(id, text, date) {
   const html = `<li class="li-box" id=${id}>
               <div class="todo-item">
@@ -71,16 +81,4 @@ export function addTodo(id, text, date) {
   domElements.mainUl.insertAdjacentHTML('afterbegin', html);
 
   domElements.mainForm.classList.add('hidden');
-}
-export function updateProjectList(projects) {
-  domElements.sidebarUl.innerHTML = '';
-  projects.forEach(function (project) {
-    addProject(project.getId(), project.getText());
-  });
-}
-export function updateTodosList(todos) {
-  domElements.mainUl.innerHTML = '';
-  todos.forEach(function (todos) {
-    addTodo(todos.getTodoId(), todos.getTodoText(), todos.getTodoDate());
-  });
 }

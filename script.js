@@ -9,12 +9,12 @@ import {
   addProject,
   updateProjectList,
   addTodo,
-  updateTodosList,
+  updateTodoList,
+  editTodo,
 } from './projectService.js';
 import { projectText, todoDate, todoText } from './input.js';
 //
 const manager = projectManager();
-let svaeSelectProject = '';
 //BTN SIDEBAR
 domElements.btnNewProject.addEventListener('click', function () {
   domElements.sidebarForm.reset();
@@ -23,20 +23,52 @@ domElements.btnNewProject.addEventListener('click', function () {
 domElements.btnCancelProject.addEventListener('click', function () {
   domElements.sidebarFormBox.classList.add('hidden');
 });
+//UL
 domElements.sidebarUl.addEventListener('click', function (e) {
   if (e.target.closest('.icon-x')) {
     const li = e.target.closest('.sidebar-li-box');
     manager.removeProjectById(li.id);
     updateProjectList(manager.getProjects());
+    domElements.mainUl.innerHTML = '';
   } else if (e.target.closest('.sidebar-li-box')) {
     const li = e.target.closest('.sidebar-li-box');
     manager.findProject(li.id);
-    if (newTodo) {
-      updateTodosList(manager.getSelectedProject());
-    }
+    const selectedProject = manager.getSelectedProject();
+    manager.setSelectProject(selectedProject);
+    updateTodoList(selectedProject.getTodosArray());
   }
 });
-
+//UL-TODO
+domElements.mainUl.addEventListener('click', function (e) {
+  if (e.target.closest('.btn-edit')) {
+    const selectedProject = manager.getSelectedProject();
+    const li = e.target.closest('.li-box');
+    const array = selectedProject.getTodosArray();
+    const todo = array.find(todo => todo.getTodoId() === li.id);
+    const selectTodo = todo;
+    editTodo(selectTodo);
+  } else if (e.target.closest('.btn-delete')) {
+    const selectedProject = manager.getSelectedProject();
+    const li = e.target.closest('.li-box');
+    selectedProject.deleteTodo(li.id);
+    updateTodoList(selectedProject.getTodosArray());
+  }
+});
+domElements.editFormBox.addEventListener('click', function (e) {
+  if (e.target.closest('.btn-cancel-todo-edit')) {
+    domElements.editFormBox.classList.add('hidden');
+    return;
+  }
+  if (e.target.closest('.form-main-edit')) {
+    e.preventDefault();
+    const selectedProject = manager.getSelectedProject();
+    updateTodoList(selectedProject.getTodosArray());
+  }
+  if (e.target.closest('.btn-Finish-edit')) {
+    domElements.editFormBox.classList.add('hidden');
+  }
+});
+//BTN TODO
 domElements.btnNewTodo.addEventListener('click', function () {
   if (!manager.getSelectedProject()) {
     alert('You must create a project first!');

@@ -1,11 +1,14 @@
 export function projectManager() {
   let projects = [];
   let selectedProject;
+  //let newTodoesArray;
+  const setSelectProject = project => (selectedProject = project);
   const pushProject = project => projects.push(project);
   const getProjects = () => projects;
   function removeProjectById(id) {
     projects = projects.filter(p => p.getId() !== id);
   }
+
   function findProject(id) {
     const project = projects.find(p => p.getId() === id);
     selectedProject = project;
@@ -19,26 +22,17 @@ export function projectManager() {
     removeProjectById,
     findProject,
     getSelectedProject,
+    setSelectProject,
   };
 }
-export function projectCreator(projectText) {
-  let id = crypto.randomUUID();
-  let text = projectText;
-  let todosArray = [];
-  //
-  const getId = () => id;
-  const getText = () => text;
-  const getTodosArray = () => todosArray;
-  return {
-    getId,
-    getText,
-    getTodosArray,
-  };
-}
+
 export function todoCreator(todoText, todoDate) {
   let id = crypto.randomUUID();
   let text = todoText;
   let date = todoDate;
+
+  const setTodoText = newText => (text = newText);
+  const setTodoDate = newDate => (date = newDate);
   const getTodoId = () => id;
   const getTodoText = () => text;
   const getTodoDate = () => date;
@@ -46,5 +40,7 @@ export function todoCreator(todoText, todoDate) {
     getTodoId,
     getTodoDate,
     getTodoText,
+    setTodoText,
+    setTodoDate,
   };
 }
