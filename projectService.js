@@ -82,3 +82,60 @@ export function addTodo(id, text, date) {
 
   domElements.mainForm.classList.add('hidden');
 }
+export function updateTodoList(todoes) {
+  domElements.mainUl.innerHTML = '';
+  if (todoes.length === 0) {
+    return;
+  }
+  todoes.forEach(function (todo) {
+    addTodo(todo.getTodoId(), todo.getTodoText(), todo.getTodoDate());
+  });
+}
+//Edit Todo
+export function editTodo(todo) {
+  domElements.editFormBox.innerHTML = '';
+  const html = `<form class="form-main-edit">
+          <div class="label_input-box">
+            <div class="text-box">
+              <label class="label-form_main" for="title">Todo:</label>
+              <input
+                class="main-input"
+                type="text"
+                id="title-edit"
+                name="title"
+                placeholder="My todo"
+                required
+              />
+            </div>
+            <div class="date-box">
+              <label class="label-form_main" for="date">Due:</label>
+              <input
+                class="main-input"
+                type="date"
+                id="date-edit"
+                name="date"
+                required
+              />
+            </div>
+          </div>
+          <div class="main_form-btn">
+            <button type="submit" class="btn btn-Finish-edit">Finish edit</button>
+            <button type="button" class="btn btn-cancel-todo-edit">Cancel</button>
+          </div></form>
+        `;
+  domElements.editFormBox.insertAdjacentHTML('afterbegin', html);
+  domElements.editFormBox.classList.remove('hidden');
+
+  const text = document.querySelector('#title-edit');
+  const date = document.querySelector('#date-edit');
+
+  text.value = `${todo.getTodoText()}`;
+  date.value = `${todo.getTodoDate()}`;
+
+  text.addEventListener('input', function (e) {
+    todo.setTodoText(e.target.value);
+  });
+  date.addEventListener('input', function (e) {
+    todo.setTodoDate(e.target.value);
+  });
+}
