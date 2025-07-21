@@ -25,7 +25,27 @@ export function projectManager() {
     setSelectProject,
   };
 }
-
+export function projectCreator(projectText) {
+  let id = crypto.randomUUID();
+  let text = projectText;
+  let todosArray = [];
+  function deleteTodo(id) {
+    todosArray = todosArray.filter(todo => todo.getTodoId() !== id);
+  }
+  console.log(todosArray);
+  const setTodosArray = newArray => (todosArray = newArray);
+  //
+  const getId = () => id;
+  const getText = () => text;
+  const getTodosArray = () => todosArray;
+  return {
+    getId,
+    getText,
+    getTodosArray,
+    setTodosArray,
+    deleteTodo,
+  };
+}
 export function todoCreator(todoText, todoDate) {
   let id = crypto.randomUUID();
   let text = todoText;
