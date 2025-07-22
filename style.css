@@ -215,6 +215,15 @@ body {
 .li-box:hover {
   background-color: #cdcdcd;
 }
+.form-edit-box {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+}
+.form-edit-box:hover {
+  background-color: #cdcdcd;
+}
 .todo-item {
   display: flex;
   align-items: center;
@@ -253,6 +262,11 @@ body {
 .btn-Finish-edit {
   background-color: #ffe176;
   border: 1px solid #ffd43b;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
 }
 .btn-edit:hover {
   background-color: #dbc165;
@@ -269,9 +283,20 @@ body {
 .btn-cancel-todo-edit {
   border: 1px solid #eeadad;
   background-color: #ffbebe;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
 }
 .btn-delete:hover {
   background-color: #d39d9d;
+}
+#title-input-edit {
+  cursor: pointer;
+}
+#date-input-edit {
+  cursor: pointer;
 }
 .icon {
   width: 20px;

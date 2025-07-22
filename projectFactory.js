@@ -1,7 +1,7 @@
 export function projectManager() {
   let projects = [];
   let selectedProject;
-  //let newTodoesArray;
+
   const setSelectProject = project => (selectedProject = project);
   const pushProject = project => projects.push(project);
   const getProjects = () => projects;
@@ -29,16 +29,20 @@ export function projectCreator(projectText) {
   let id = crypto.randomUUID();
   let text = projectText;
   let todosArray = [];
+  let editing = false;
   function deleteTodo(id) {
     todosArray = todosArray.filter(todo => todo.getTodoId() !== id);
   }
-  console.log(todosArray);
+  const setEditing = value => (editing = value);
   const setTodosArray = newArray => (todosArray = newArray);
+  const getEditing = () => editing;
   //
   const getId = () => id;
   const getText = () => text;
   const getTodosArray = () => todosArray;
   return {
+    setEditing,
+    getEditing,
     getId,
     getText,
     getTodosArray,

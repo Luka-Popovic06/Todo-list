@@ -45,27 +45,18 @@ domElements.mainUl.addEventListener('click', function (e) {
     const li = e.target.closest('.li-box');
     const array = selectedProject.getTodosArray();
     const todo = array.find(todo => todo.getTodoId() === li.id);
-    const selectTodo = todo;
-    editTodo(selectTodo);
+    if (selectedProject.getEditing() === true) {
+      return;
+    }
+    editTodo(todo, selectedProject.getTodosArray(), selectedProject);
   } else if (e.target.closest('.btn-delete')) {
     const selectedProject = manager.getSelectedProject();
+    if (selectedProject.getEditing() === true) {
+      return;
+    }
     const li = e.target.closest('.li-box');
     selectedProject.deleteTodo(li.id);
     updateTodoList(selectedProject.getTodosArray());
-  }
-});
-domElements.editFormBox.addEventListener('click', function (e) {
-  if (e.target.closest('.btn-cancel-todo-edit')) {
-    domElements.editFormBox.classList.add('hidden');
-    return;
-  }
-  if (e.target.closest('.form-main-edit')) {
-    e.preventDefault();
-    const selectedProject = manager.getSelectedProject();
-    updateTodoList(selectedProject.getTodosArray());
-  }
-  if (e.target.closest('.btn-Finish-edit')) {
-    domElements.editFormBox.classList.add('hidden');
   }
 });
 //BTN TODO
