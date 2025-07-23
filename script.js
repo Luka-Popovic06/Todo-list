@@ -25,7 +25,7 @@ domElements.btnCancelProject.addEventListener('click', function () {
 });
 //UL
 domElements.sidebarUl.addEventListener('click', function (e) {
-  if (e.target.closest('.icon-x')) {
+  if (e.target.classList.contains('icon-x')) {
     const li = e.target.closest('.sidebar-li-box');
     manager.removeProjectById(li.id);
     updateProjectList(manager.getProjects());
